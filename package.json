@@ -1,0 +1,21 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Natours CSS Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:sass": "node-sass sass/main.scss css/style.css -o",
+    "watch:sass": "npm run build:sass && npm run build:sass -- -w",
+    "compile:sass": "node-sass sass/main.scss css/style.css -watch"
+  },
+  "keywords": [
+    "Natours",
+    "Nature"
+  ],
+  "author": "Nathaniel MacIver trained by Jonas Schmedtmann",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
