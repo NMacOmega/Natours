@@ -1,18 +1,40 @@
-
-* ,
+*,
 *::after,
-*::before{
-    margin: 0;
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //This defines what 1srem means;
+  font-size: 62.5%; //1rem = 10px at this level
+
+  @include respond(tab-land) {
+    //Width < 900
+    font-size: 56.25%; //1rem = 9px, 6.25 * 8 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    //Width < 500
+    font-size: 50%; //1rem = 8px, 6.25 * 8 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px, 6.25 * 12 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
     padding: 0;
-    box-sizing: inherit;
+  }
 }
 
-
-html{
-    //This defines what 1srem means;
-    font-size: 62.5%;
-}
-
-body{
-    box-sizing: border-box;
+::selection {
+  background-color: $color-primary; //Makes highlighted text green with white text!!
+  color: $color-white;
 }

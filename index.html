@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <!-- The viewpoint metatag above is SUPER IMPORTANT!!! -->
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
+        <!-- REMOVE FONT CONNECTIONS WHEN DONE COMPILING -->
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="public/img/favicon.png">
@@ -13,6 +13,23 @@
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
     <body>
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natours</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                </ul>
+            </nav>
+        </div>
         <header class = "header">
             <div class="header__logo-box">
                 <img src="./public/img/logo-white.png" alt="Natours Logo" class="header__logo"></div>
@@ -47,9 +64,27 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="public/img/nat-1-large.jpg" alt="Natours scenery 1" class="composition__photo composition__photo--p1">
-                            <img src="public/img/nat-2-large.jpg" alt="Natours scenery 2" class="composition__photo composition__photo--p2">
-                            <img src="public/img/nat-3-large.jpg" alt="Natours scenery 3" class="composition__photo composition__photo--p3">
+
+                            <img srcset="public/img/nat-1.jpg 300w, public/img/nat-1-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                            alt="Natours scenery 1"  class="composition__photo composition__photo--p1"
+                            src="public/img/nat-1-large.jpg"
+                            >
+                            <img srcset="public/img/nat-2.jpg 300w, public/img/nat-2-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                            alt="Natours scenery 2"  class="composition__photo composition__photo--p2"
+                            src="public/img/nat-2-large.jpg"
+                            >
+                            <img srcset="public/img/nat-3.jpg 300w, public/img/nat-3-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                            alt="Natours scenery 3"  class="composition__photo composition__photo--p3"
+                            src="public/img/nat-3-large.jpg"
+                            >
+
+
+                            <!-- <img src="public/img/nat-1-large.jpg" alt="Natours scenery 1" class="composition__photo composition__photo--p1"> -->
+                            <!-- <img src="public/img/nat-2-large.jpg" alt="Natours scenery 2" class="composition__photo composition__photo--p2"> -->
+                            <!-- <img src="public/img/nat-3-large.jpg" alt="Natours scenery 3" class="composition__photo composition__photo--p3"> -->
                         </div>
                     </div>
                 </div>
@@ -117,7 +152,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$297</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book Now!</a>
+                                    <a href="#popup" class="btn btn--white">Book Now!</a>
                                 </div>
                             </div>
                         </div>   
@@ -147,7 +182,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$497</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book Now!</a>
+                                    <a href="#popup" class="btn btn--white">Book Now!</a>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +213,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$897</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book Now!</a>
+                                    <a href="#popup" class="btn btn--white">Book Now!</a>
                                 </div>
                             </div>
                         </div>
@@ -192,10 +227,18 @@
             <section class="section-stories">
                 <div class="bg-video">
                     <video class="bg-video__content" autoplay loop muted>
-                        <source src="./public/img/video.mp4" type="video/mp4">
-                        <source src= "./public/img/video.webm" type="video/webm">
+                     <source src="./public/img/video.mp4" type="video/mp4"> 
+                     <source src= "./public/img/video.webm" type="video/webm">
                         Your Browser is not supported!
                     </video>
+
+                    <img srcset="public/img/nat-8.jpg 300w, public/img/nat-8.jpg 1000w"
+                    sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                    alt="Tour Photo"  class="popup__img"
+                    src="public/img/nat-8.jpg"
+                    >
+
+
                 </div>
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
@@ -205,7 +248,11 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img class="story__img" src="./public/img/nat-8.jpg" alt="Adventurer in Kayak">
+                            <img srcset="public/img/nat-8.jpg 300w, public/img/nat-8.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                            alt="Adventurer in Kayak"  class="story__img"
+                            src="public/img/nat-8.jpg"
+                            >
                             <figcaption class="story__caption">Mary Smith</figcaption>                       
                         </figure>
                         <div class="story__text">
@@ -217,7 +264,11 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img src="./public/img/nat-9.jpg" alt="Adventurer on Hike" class="story__img">
+                            <img srcset="public/img/nat-9.jpg 300w, public/img/nat-9.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                            alt="Adventurer admiring a mountain"  class="story__img"
+                            src="public/img/nat-8.jpg"
+                            >
                             <figcaption class="story__caption">Jack Wilson</figcaption>
                         </figure>
                         <div class="story__text">
@@ -316,7 +367,61 @@
 
         </main>
 
+        <footer class="footer">
+            <div class="footer__logo-box">
+                <picture class="footer__logo">
+                    <source srcset= "./public/img/logo-green-small-1x.png 1x, ./public/img/logo-green-small-2x.png 2x" 
+                            media="(max-width: 37.5em)" alt="Full logo"> 
+                    <img srcset="./public/img/logo-green-1x.png 1x, ./public/img/logo-green-2x.png 2x" alt="Full logo"
+                            src="./public/img/logo-green-2x.png">
+        
+                </picture>
+            </div>
+            <div class="row">
+                <div class="col-1-of-2">
+                    <div class="footer__navigation">
+                      <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                      </ul>  
+                    </div>
+                </div>
+                <div class="col-1-of-2">
+                    <p class="footer__copyright">
+                        Built by <a href="" class="footer__link">J. Schmedtmann</a> for his online course <a href="https://www.udemy.com/share/101Wkw3@UzKlHA76lYPvyhmmWTUYR57nrGy2FnNaYbN4zy5yDphdkY_p62zJO1GsTN1e3QzjWw==/" class="footer__link">Advanced CSS and SASS.</a>  Copyright &copy; Jonas Schmedtmann. You are 100% allowed to use this webpage for both personal and commercial uses, but not to claim it as your own design. A credit to the original author, Jonas Schmedtmann, is of course always appreciated!
+                    </p>
+                </div>
+            </div>
+        </footer>
 
+        <div class="popup" id ="popup">
+            <div class="popup__content">
+                <div class="popup__left">
+                    <img srcset="public/img/nat-8.jpg 300w, public/img/nat-8.jpg 1000w"
+                    sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                    alt="Tour Photo"  class="popup__img"
+                    src="public/img/nat-8.jpg"
+                    >
+                    <img srcset="public/img/nat-9.jpg 300w, public/img/nat-9.jpg 1000w"
+                    sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" 
+                    alt="Tour Photo"  class="popup__img"
+                    src="public/img/nat-9.jpg"
+                    >
+                </div>
+                <div class="popup__right">
+                    <a href="#section-tours" class="popup__close">
+                        &times;
+                    </a>
+                    <h2 class="heading-secondary u-margin-bottom-medium">Start booking now</h2>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+                     <p class="popup__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita quis reprehenderit veniam voluptates delectus possimus aspernatur eligendi itaque quas tempore impedit ullam non suscipit amet, animi, quibusdam repudiandae ut autem facere repellat doloribus explicabo similique nesciunt. Magni ea suscipit modi consequatur quaerat aspernatur quis, voluptas numquam temporibus dicta nobis deleniti?</p>
+                     <a href="#" class="btn btn--primary">Book now</a>
+                </div>
+            </div>
+        </div>
     
 
         <!-- <section class="grid-test">
@@ -353,6 +458,6 @@
                 <div class="col-3-of-4">Col 3 of 4</div>
             </div>
         </section> -->
-        
+
     </body>
 </html>

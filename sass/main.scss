@@ -11,6 +11,10 @@
 @import "pages/home";
 
 @import "layout/header";
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/nav";
+@import "layout/popup";
 
 @import "components/btn.scss";
 @import "components/composition";
@@ -19,5 +23,3 @@
 @import "components/story";
 @import "components/form";
 @import "components/bg-video";
-
-@import "layout/grid";

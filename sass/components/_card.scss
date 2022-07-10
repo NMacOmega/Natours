@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden; //Needed for Safari 9, ALWAYS USE CANIUSE.com to check
     backface-visibility: hidden;
     border-radius: $width-rounded-corner;
     overflow: hidden;
@@ -63,8 +64,10 @@
     background-size: cover;
     height: 23rem;
     background-blend-mode: screen;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
     border-top-left-radius: $width-rounded-corner;
     border-top-right-radius: $width-rounded-corner;
 
@@ -75,6 +78,15 @@
           $color-secondary-dark
         ),
         url(../public/img/nat-5.jpg);
+
+      @include highres {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-secondary-light,
+            $color-secondary-dark
+          ),
+          url(../public/img/nat-5.jpg);
+      }
     }
 
     &--2 {
@@ -84,6 +96,15 @@
           $color-primary-dark
         ),
         url(../public/img/nat-6.jpg);
+
+      @include highres {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-primary-light,
+            $color-primary-dark
+          ),
+          url(../public/img/nat-6.jpg);
+      }
     }
 
     &--3 {
@@ -93,6 +114,15 @@
           $color-tertiary-dark
         ),
         url(../public/img/nat-7.jpg);
+
+      @include highres {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-tertiary-light,
+            $color-tertiary-dark
+          ),
+          url(../public/img/nat-7.jpg);
+      }
     }
   }
 
@@ -182,5 +212,64 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @media only screen and (max-width: 56.25em),
+    only screen and (hover: none) and (pointer: none) {
+    //oposite is hover: hover
+    //Should implement this:
+    //https://css-irl.info/detecting-hover-capable-devices/
+    // FUNCTIONALITY
+    /*
+     See https://www.udemy.com/course/advanced-css-and-sass/learn/lecture/8274554#notes
+     for details on why we did this
+    */
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    background-color: $color-white;
+    overflow: hidden;
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+      border-radius: 0;
+
+      &--back {
+        transform: rotateY(0);
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+          -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+        // margin-top: -2rem;
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 6rem;
+    }
   }
 }
